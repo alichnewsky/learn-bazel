@@ -1,13 +1,24 @@
-things to try:
-* "software insulation techniques" : libraries with : 
-  * C-style procedural interfaces
-  * pure abstract interfaces
-  * pointer to implementations
-  * dependency injection
-* segregation between headers to be exported by the library and internal ones
-  * can we restrict the symbols exported by a library
+## Learn to use [Bazel](http://bazel.io)
+My goal here is to learn to use Bazel as a C++ build tool for Linux
 
-* bazel : LINUX + MAC OS X
-* gradle: LINUX + MAC OS X + WINDOWS
-* cmake
-  
+It is meant as the basis for a tutorial and a comparison with other tools
+
+1. install Bazel
+1. clone this repo
+1. build
+```bash 
+bazel build -c opt --verbose_failures //mylib:all
+```
+1. test
+```
+bazel test -c opt //mylib:all
+```
+
+I have not yet figured out:
+* how I packaged software built with Bazel
+* how I make sure I distribute and link with the right libraries: `libmylib.so` not `libmylib_Slibmylib.so` 
+* Can I strip the symbols from objects not part of a library's API (declare what symbols I want to export or strip)
+* how to use `third_party` and `//external` correctly
+  * I have examples in another repo, but not this one
+* how to use other bazel repos as third party and let their own?
+* how to use gtest as part of `cc_test` targets (I think it's trivial)
