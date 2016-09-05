@@ -1,0 +1,5 @@
+# emacs temporary files
+*~
+
+# bazel build artifacts (links) 
+bazel-*
