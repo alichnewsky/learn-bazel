@@ -11,7 +11,10 @@ cc_library(
 cc_test(
     name = "functions_test",
     srcs = ["functions_test.cpp"],
-    deps = [":mylib"],
+    deps = [
+    	":mylib",
+        "//third_party/gtest:gtest_main",
+      ],
     size = "small",
     timeout = "short",
 )

@@ -1,6 +1,16 @@
+#include <gtest/gtest.h>
 #include "functions.hpp"
 
-int main(int argc, char** argv){
-  mylibrary::foobar(50);
-  return 0;
+namespace {
+  class MyLibraryFunctionsTest : public testing::Test {
+  protected:
+    virtual void SetUp() override {}
+    virtual void TearDown() override {}
+  };
+  // always passes
+  TEST_F(MyLibraryFunctionsTest, foobar) {
+    mylibrary::foobar(15);
+    int a = 1;
+    EXPECT_EQ(1, a);
+  }  
 }
