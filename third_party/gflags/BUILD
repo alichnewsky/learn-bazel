@@ -6,4 +6,6 @@ cc_library(
   deps = [
     "//third_party/gflags/upstream:gflags",
   ],
+  # gtest detects pthread, and the linker fails without it.
+  linkopts = ["-lpthread"],
 )

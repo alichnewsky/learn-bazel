@@ -37,6 +37,8 @@ cc_library(
     "//third_party/gflags",
     ":gtest_prod",
   ],
+  # gtest detects pthread, and the linker fails without it.
+  linkopts = ["-lpthread"],
 )
 
 cc_library(
